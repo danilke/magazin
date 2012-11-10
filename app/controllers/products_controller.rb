@@ -1,14 +1,20 @@
 class ProductsController < ApplicationController
 
-  def index
-    products = Product.active.includes(:variants)
+   def index
+    @products = Product.order(:name).page params[:page]
     
-    product_types = nil
-    if params[:product_type_id].present? && product_type = ProductType.find_by_id(params[:product_type_id])
-      product_types = product_type.self_and_descendants.map(&:id)
+    unless params[:search].blank?
+    @products = @products.where("name LIKE %#{params[:search]}%") unless  params[:search].nil?
+    end
+    unless params[:product_type_id].blank?
+      @pt = ProductType.find(params[:product_type_id])
+      @products = @products.where(:product_type_id => @pt.id) unless params[:product_type_id].nil?
+    end
+    unless params[:brand_id].blank?
+      @products = @products.where(:brand_id => params[:brand_id]) unless params[:brand_id].blank?
     end
 
-    @products = products.where('product_type_id IN (?)', product_types || featured_product_types)
+   
   end
 
   def create

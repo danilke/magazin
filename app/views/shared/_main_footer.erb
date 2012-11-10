@@ -1,19 +1,33 @@
-<%
-loop_footer_tabs = {
-  'Terms & Conditions'  => terms_path,
-  'About'               => about_path#,
-  #'Customer Service'    => faq_customer_service_path
-}
-%>
-
-
-
-<div id="footer_wrapper" class='bp'>
-  <div class="container" id="footer">
-    <ul id='main-footer-tabs'>
-      <% loop_footer_tabs.each_pair do |tab_name, tab_path| %>
-        <li> <%= link_to_unless_current tab_name, tab_path %> </li> <%= '|' unless tab_name == 'About' %>
-      <% end %>
+<div id="footer">
+    <div id="tmfooterlinks">
+  <div>
+    <h4>Information</h4>
+    <ul>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/contact-form.php">Contact</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/sitemap.php">Sitemap</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/cms.php?id_cms=2">Legal Notice</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/cms.php?id_cms=3">Terms and conditions</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/cms.php?id_cms=4">About us</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Our offers</h4>
+    <ul>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/new-products.php">New products</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/best-sales.php">Top sellers</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/prices-drop.php">Specials</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/manufacturer.php">Manufacturers</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/supplier.php">Suppliers</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Your Account</h4>
+    <ul>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/my-account.php">Your Account</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/identity.php">Personal information</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/addresses.php">Addresses</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/discount.php">Discount</a></li>
+      <li><a href="http://livedemo00.template-help.com/prestashop_40836/history.php">Order history</a></li>
     </ul>
   </div>
 </div>

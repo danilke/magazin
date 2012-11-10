@@ -16,15 +16,15 @@
                 <span class="tiny ">Make any changes below?</span>
               </li>
               <li>
-                <%= cart_form.submit 'update' %>
+                <%= cart_form.submit 'update', :class => "exclusive" %>
               </li>
             </ul>
 
           </div>
 
       </div>
-      <div class=''>
-        <%= cart_form.submit 'checkout', {:checkout => 1} %>
+      <div>
+        <%= cart_form.submit 'checkout',  :class => "exclusive"  %>
       </div>
 
       <div class="clear"></div>

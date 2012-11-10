@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0053)http://livedemo00.template-help.com/prestashop_40836/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DIGITAL STORE</title>
+	<meta name="description" content="Shop powered by PrestaShop">
+	<meta name="keywords" content="shop, prestashop">
+	
+	<meta name="generator" content="PrestaShop">
+	<meta name="robots" content="index,follow">
+	<link rel="icon" type="image/vnd.microsoft.icon" href="http://livedemo00.template-help.com/prestashop_40836/img/favicon.ico?1347604774">
+	<link rel="shortcut icon" type="image/x-icon" href="http://livedemo00.template-help.com/prestashop_40836/img/favicon.ico?1347604774">
+	<script type="text/javascript" async="" src="ga.js"></script><script type="text/javascript">
+		var baseDir = 'http://livedemo00.template-help.com/prestashop_40836/';
+		var static_token = '0137315b4d39d17137ee3aacec7c0643';
+		var token = 'f3abf3bf626c9461e838c9184994de91';
+		var priceDisplayPrecision = 2;
+		var priceDisplayMethod = 1;
+		var roundMode = 2;
+	</script>
+		<link href="global.css" rel="stylesheet" type="text/css" media="all">
+		<link href="jquery.autocomplete.css" rel="stylesheet" type="text/css" media="all">
+		<link href="css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="tools.js"></script>
+		<script type="text/javascript" src="ajax-cart.js"></script>
+		<script type="text/javascript" src="jquery.autocomplete.js"></script>
+		
+	<script type="text/javascript" src="cookies.js"></script>
+    	<script type="text/javascript" src="script.js"></script>
+     <script type="text/javascript" src="jscript_xjquery.jqtransform.js"></script>   
+</head>
+<body id="index">
+<!--[if lt IE 8]><div style='clear:both;height:59px;padding:0 15px 0 15px;position:relative;z-index:10000;text-align:center;'><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div><![endif]-->
+<p id="back-top" style="display: block; "> <a href="http://livedemo00.template-help.com/prestashop_40836/#top"><span></span></a> </p>
+<div id="wrapper1">
+<div id="wrapper2">
+<div id="wrapper3">
+	<!-- Header -->
+	<div id="header">
+		<a id="header_logo" href="saved_resource.html" title="DIGITAL STORE">
+			<img class="logo" src="logo.jpg" alt="DIGITAL STORE">
+		</a>
+		<div id="header_right">
+			<!-- Block user information module HEADER -->
+<div id="header_user_info">
+	Welcome,
+			<a href="http://livedemo00.template-help.com/prestashop_40836/my-account.php">(&nbsp;Log in&nbsp;)</a>
+	</div>
+<div id="header_cart">
+		<a href="http://livedemo00.template-help.com/prestashop_40836/order.php" title="Your Shopping Cart">Cart:</a>
+	<span class="ajax_cart_quantity hidden">0</span>
+	<span class="ajax_cart_product_txt hidden">product</span>
+	<span class="ajax_cart_product_txt_s hidden">products</span>
+	<span class="ajax_cart_no_product">(empty)</span>
+	</div>
+<!-- /Block user information module HEADER --><ul id="tmheaderlinks">
+	<li><a href="saved_resource.html" class="active">home</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="http://livedemo00.template-help.com/prestashop_40836/prices-drop.php">specials</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="http://livedemo00.template-help.com/prestashop_40836/cms.php?id_cms=1">Delivery</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	<li><a href="http://livedemo00.template-help.com/prestashop_40836/contact-form.php">contact</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	<li><a class="header_account" href="http://livedemo00.template-help.com/prestashop_40836/my-account.php">Your Account</a></li>
+</ul><!-- Block search module TOP -->
+<div id="search_block_top">
+	<form method="get" action="http://livedemo00.template-help.com/prestashop_40836/search.php" id="searchbox">
+		<input class="search_query ac_input" type="text" id="search_query_top" name="search_query" value="" autocomplete="off">
+		<a href="javascript:document.getElementById('searchbox').submit();">Search</a>
+		<input type="hidden" name="orderby" value="position">
+		<input type="hidden" name="orderway" value="desc">
+		
+	</form>
+</div>
+	<script type="text/javascript">
+	// <![CDATA[
+		
+		function tryToCloseInstantSearch() {
+			if ($('#old_center_column').length > 0)
+			{
+				$('#center_column').remove();
+				$('#old_center_column').attr('id', 'center_column');
+				$('#center_column').show();
+				return false;
+			}
+		}
+		instantSearchQueries = new Array();
+		function stopInstantSearchQueries(){
+			for(i=0;i<instantSearchQueries.length;i++) {
+				instantSearchQueries[i].abort();
+			}
+			instantSearchQueries = new Array();
+		}
+		$("#search_query_top").keyup(function(){
+			if($(this).val().length > 0){
+				stopInstantSearchQueries();
+				instantSearchQuery = $.ajax({
+				url: 'http://livedemo00.template-help.com/prestashop_40836/search.php',
+				data: 'instantSearch=1&id_lang=1&q='+$(this).val(),
+				dataType: 'html',
+				success: function(data){
+					if($("#search_query_top").val().length > 0)
+					{
+						tryToCloseInstantSearch();
+						$('#center_column').attr('id', 'old_center_column');
+						$('#old_center_column').after('<div id="center_column" class="center_column instant_search_results">'+data+'</div>');
+						$('#old_center_column').hide();
+						$("#instant_search_results a.close").click(function() {
+							$("#search_query_top").val('');
+							return tryToCloseInstantSearch();
+						});
+						return false;
+					}
+					else
+						tryToCloseInstantSearch();
+					}
+				});
+				instantSearchQueries.push(instantSearchQuery);
+			}
+			else
+				tryToCloseInstantSearch();
+		});
+	// ]]>
+	
+	</script>
+	<script type="text/javascript">
+	// <![CDATA[
+	
+		$('document').ready( function() {
+			$("#search_query_top")
+				.autocomplete(
+					'http://livedemo00.template-help.com/prestashop_40836/search.php', {
+						minChars: 3,
+						max: 10,
+						width: 500,
+						selectFirst: false,
+						scroll: false,
+						dataType: "json",
+						formatItem: function(data, i, max, value, term) {
+							return value;
+						},
+						parse: function(data) {
+							var mytab = new Array();
+							for (var i = 0; i < data.length; i++)
+								mytab[mytab.length] = { data: data[i], value: data[i].cname + ' > ' + data[i].pname };
+							return mytab;
+						},
+						extraParams: {
+							ajaxSearch: 1,
+							id_lang: 1
+						}
+					}
+				)
+				.result(function(event, data, formatted) {
+					$('#search_query_top').val(data.pname);
+					document.location.href = data.product_link;
+				})
+		});
+	
+	// ]]>
+	</script>
+<!-- /Block search module TOP --><!-- Block languages module -->
+<div id="languages_block_top">
+	<ul id="first-languages">
+					<li class="selected_language">
+									en
+							</li>
+			</ul>
+</div>
+<!-- /Block languages module --><!-- Block currencies module -->
+<div id="currencies_block_top">
+	<form id="setCurrency" action="saved_resource.html" method="post" class="jqtransformdone">
+		<label style="cursor: pointer; ">Currency:</label>
+		<div class="jqTransformSelectWrapper" style="z-index: 10; width: 82px; "><div><span style="width: 61px; ">Dollar</span><a href="http://livedemo00.template-help.com/prestashop_40836/#" class="jqTransformSelectOpen"></a></div><ul style="width: 80px; display: none; visibility: visible; "><li><a href="http://livedemo00.template-help.com/prestashop_40836/#" index="0" class="selected">Dollar</a></li><li><a href="http://livedemo00.template-help.com/prestashop_40836/#" index="1">Euro</a></li><li><a href="http://livedemo00.template-help.com/prestashop_40836/#" index="2">Pound</a></li></ul><select onchange="setCurrency(this.value);" class="jqTransformHidden" style="">
+							<option value="2" selected="selected">Dollar</option>
+							<option value="1">Euro</option>
+							<option value="3">Pound</option>
+					</select></div>
+		<input type="hidden" name="id_currency" id="id_currency" value="">
+		<input type="hidden" name="SubmitCurrency" value="">
+	</form>
+</div>
+<!-- /Block currencies module --><!-- TM Categories -->
+<script type="text/javascript" src="superfish.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('ul.sf-menu').superfish({
+delay: 1000,
+animation: {opacity:'show',height:'show'},
+speed: 'fast',
+autoArrows: false,
+dropShadows: false
+});
+});
+</script>
+
+<div id="tmcategories">
+	<ul id="cat" class="sf-menu sf-js-enabled">
+						<li class="sub">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=2">Laptops</a>
+			<ul class="subcat" style="display: none; visibility: hidden; ">
+									<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=3">Eget molestie </a>
+	</li>
+												<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=4">Placerat pellentesque</a>
+	</li>
+												<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=5">Sed sollicitudin tortor</a>
+	</li>
+												<li class=" last">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=6">Proin congue</a>
+	</li>
+							</ul>
+	</li>
+								<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=7">Netbooks</a>
+	</li>
+								<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=8">Desktops</a>
+	</li>
+								<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=9">Gaming PCs</a>
+	</li>
+								<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=10">Tablets</a>
+	</li>
+								<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=11">Servers</a>
+	</li>
+								<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=12">Monitors</a>
+	</li>
+								<li class="">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=13">Projectors</a>
+	</li>
+								<li class=" last">
+	<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=14">Printers &amp; Fax</a>
+	</li>
+				</ul>
+</div>
+<!-- /TM Categories -->
+		</div>
+	</div>
+	<div id="columns">
+<!-- Center -->
+		<div id="center_column1">
+		<div id="center_column2">
+		<div id="center_column" class="center_column">
+<script type="text/javascript" src="nivo.slider.js"></script>
+<div id="tmnivoslider"> 	
+    <div id="slider" style="position: relative; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_02.jpg); background-position: initial initial; background-repeat: no-repeat no-repeat; " class="nivoSlider">
+			<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=12" class="nivo-imageLink" style="display: none; "><img src="slide_00.jpg" alt="" title="#htmlcaption1" style="display: none; "></a>
+			<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=5" class="nivo-imageLink" style="display: none; "><img src="slide_01.jpg" alt="" title="#htmlcaption2" style="display: none; "></a>
+			<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=7" class="nivo-imageLink" style="display: block; "><img src="slide_02.jpg" alt="" title="#htmlcaption3" style="display: none; "></a>
+		<div class="nivo-caption" style="opacity: 1; "><p style="opacity: 0.784996; ">
+			<h2 class="slide-3">You`re actually touching your photos, reading a book, playing the piano. Nothing comes between you and what you love.</h2>
+		</p></div><div class="nivo-controlNav"><a class="nivo-control active" rel="0">1</a><a class="nivo-control" rel="1">2</a><a class="nivo-control" rel="2">3</a></div><div class="nivo-slice" style="left: 0px; width: 940px; height: 100%; opacity: 0.110751; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: 0px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 94px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -94px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 188px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -188px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 282px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -282px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 376px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -376px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 470px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -470px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 564px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -564px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 658px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -658px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 752px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -752px 0%; background-repeat: no-repeat no-repeat; "></div><div class="nivo-slice" style="left: 846px; width: 94px; height: 0px; opacity: 0; background-image: url(http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg); background-position: -846px 0%; background-repeat: no-repeat no-repeat; "></div></div>
+			<div id="htmlcaption1" class="nivo-html-caption">
+			<h2 class="slide-1">Multi-Touch and music. Smart ways to stay fit. Clock faces. A built-in FM radio. Everything about iPod nano is a huge hit.</h2>
+		</div>
+			<div id="htmlcaption2" class="nivo-html-caption">
+			<h2 class="slide-2">Siri on iPhone 4S lets you use your voice to send messages, schedule meetings, place phone calls, and more.</h2>
+		</div>
+			<div id="htmlcaption3" class="nivo-html-caption">
+			<h2 class="slide-3">You`re actually touching your photos, reading a book, playing the piano. Nothing comes between you and what you love.</h2>
+		</div>
+	</div>
+<script type="text/javascript">
+
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
+		slices:10,
+		animSpeed:500, //Slide transition speed
+		pauseTime:5000,
+		startSlide:0, //Set starting Slide (0 index)
+		directionNav:false, //Next & Prev
+		directionNavHide:false, //Only show on hover
+		controlNav:true, //1,2,3...
+		controlNavThumbs:false, //Use thumbnails for Control Nav
+      	controlNavThumbsFromRel:false, //Use image rel for thumbs
+		controlNavThumbsSearch: '.jpg', //Replace this with...
+		controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+		keyboardNav:true, //Use left & right arrows
+		pauseOnHover:true, //Stop animation while hovering
+		manualAdvance:false, //Force manual transitions
+		captionOpacity:1.0, //Universal caption opacity
+		beforeChange: function(){},
+		afterChange: function(){},
+		slideshowEnd: function(){} //Triggers after all slides have been shown
+	});
+});
+
+</script><script type="text/javascript" src="jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="jquery.easing.1.3(1).js"></script>
+
+<script type="text/javascript">
+$(function(){
+  $('#carousel').bxSlider({
+/*	auto: true,*/
+	autoStart: true,
+	speed: 500,
+	pause: 6000,
+    displaySlideQty: 6,
+    moveSlideQty: 1
+  });
+}); 
+</script>
+
+<!-- tmspecials -->
+<div id="tmspecials">
+
+	<div class="block_content">
+		<div class="bx-wrapper" style="width:930px; position:relative;"><div class="bx-window" style="position:relative; overflow:hidden; width:930px;"><ul id="carousel" style="width: 999999px; position: relative; left: -155px; "><li class="tmsp6" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=3"><img src="3-345-tmspecials.jpg" alt="Aenean sagittis sed congue leo"></a>
+			</li>
+							<li class="tmsp1 pager" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=7"><img src="7-357-tmspecials.jpg" alt="B&amp;W 803 Diamond floorstanding loudspeakers"></a>
+			</li>
+									<li class="tmsp2 pager" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=8"><img src="8-360-tmspecials.jpg" alt="Behringer Headphones HPS3000"></a>
+			</li>
+									<li class="tmsp3 pager" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=9"><img src="9-363-tmspecials.jpg" alt="Canon EOS Rebel T2i DSLR camera"></a>
+			</li>
+									<li class="tmsp4 pager" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=10"><img src="10-366-tmspecials.jpg" alt="Canon FS10 16GB Dual Flash Digital Video Camera"></a>
+			</li>
+									<li class="tmsp5 pager" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=11"><img src="11-369-tmspecials.jpg" alt="Canon Xl2 Video Camera"></a>
+			</li>
+									<li class="tmsp6 pager" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=3"><img src="3-345-tmspecials.jpg" alt="Aenean sagittis sed congue leo"></a>
+			</li>
+																		<li class="tmsp1" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=7"><img src="7-357-tmspecials.jpg" alt="B&amp;W 803 Diamond floorstanding loudspeakers"></a>
+			</li><li class="tmsp2" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=8"><img src="8-360-tmspecials.jpg" alt="Behringer Headphones HPS3000"></a>
+			</li><li class="tmsp3" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=9"><img src="9-363-tmspecials.jpg" alt="Canon EOS Rebel T2i DSLR camera"></a>
+			</li><li class="tmsp4" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=10"><img src="10-366-tmspecials.jpg" alt="Canon FS10 16GB Dual Flash Digital Video Camera"></a>
+			</li><li class="tmsp5" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=11"><img src="11-369-tmspecials.jpg" alt="Canon Xl2 Video Camera"></a>
+			</li><li class="tmsp6" style="width: 155px; float: left; list-style: none; ">
+				<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=3"><img src="3-345-tmspecials.jpg" alt="Aenean sagittis sed congue leo"></a>
+			</li></ul></div><a href="" class="bx-prev">prev</a><a href="" class="bx-next">next</a></div>
+	</div>
+</div>
+<!-- /tmspecials -->
+<!-- MODULE Home Featured Products -->
+<div id="featured_products">
+	<h4>Featured products</h4>
+		<div class="block_content">
+		<ul>
+						<li class="ajax_block_product">
+				<a class="product_image" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=1" title="Lorem ipsum duis interdum eget urna"><img src="1-339-home_big.jpg" alt="Lorem ipsum duis interdum eget urna"></a>
+				<h5><a class="product_link" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=1" title="Lorem ipsum duis interdum...">Lorem ipsum duis interdum...</a></h5>
+				<p class="product_desc"><a class="product_descr" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=1" title="More"> Comfort is a very important thing nowadays...</a></p>
+				<div>
+					<a class="button" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=1" title="View">View</a>
+					<span class="price">$549.00</span>
+				</div>
+			</li>
+						<li class="ajax_block_product">
+				<a class="product_image" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=2" title="Consectetur adipiscing elit"><img src="2-342-home_big.jpg" alt="Consectetur adipiscing elit"></a>
+				<h5><a class="product_link" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=2" title="Consectetur adipiscing elit">Consectetur adipiscing elit</a></h5>
+				<p class="product_desc"><a class="product_descr" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=2" title="More">It is clear that our way of life must be as...</a></p>
+				<div>
+					<a class="button" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=2" title="View">View</a>
+					<span class="price">$215.00</span>
+				</div>
+			</li>
+						<li class="ajax_block_product">
+				<a class="product_image" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=3" title="Aenean sagittis sed congue leo"><img src="3-345-home_big.jpg" alt="Aenean sagittis sed congue leo"></a>
+				<h5><a class="product_link" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=3" title="Aenean sagittis sed congue leo">Aenean sagittis sed congue leo</a></h5>
+				<p class="product_desc"><a class="product_descr" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=3" title="More">Home electronics satisfy our wishes and make...</a></p>
+				<div>
+					<a class="button" href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=3" title="View">View</a>
+					<span class="price">$44.10</span>
+				</div>
+			</li>
+					</ul>
+		<div class="clearblock"></div>
+	</div>
+	</div>
+<!-- /MODULE Home Featured Products -->		</div>
+		</div>
+		</div>
+		<div class="clearblock"></div>
+	</div>
+<!-- Footer -->
+	<div id="footer">
+		<div id="tmfooterlinks">
+	<div>
+		<h4>Information</h4>
+		<ul>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/contact-form.php">Contact</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/sitemap.php">Sitemap</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/cms.php?id_cms=2">Legal Notice</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/cms.php?id_cms=3">Terms and conditions</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/cms.php?id_cms=4">About us</a></li>
+		</ul>
+	</div>
+	<div>
+		<h4>Our offers</h4>
+		<ul>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/new-products.php">New products</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/best-sales.php">Top sellers</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/prices-drop.php">Specials</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/manufacturer.php">Manufacturers</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/supplier.php">Suppliers</a></li>
+		</ul>
+	</div>
+	<div>
+		<h4>Your Account</h4>
+		<ul>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/my-account.php">Your Account</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/identity.php">Personal information</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/addresses.php">Addresses</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/discount.php">Discount</a></li>
+			<li><a href="http://livedemo00.template-help.com/prestashop_40836/history.php">Order history</a></li>
+		</ul>
+	</div>
+	<p>© 2012 Powered by <a href="http://www.prestashop.com/">PrestaShop</a>™. All rights reserved</p>
+</div>
+		<!-- [[%FOOTER_LINK]] -->	</div>
+</div>
+</div>
+</div>
+	
+<script type="text/javascript" src="ga(1).js"></script>
+
+
+</body></html>

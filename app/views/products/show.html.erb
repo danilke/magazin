@@ -1,75 +1,110 @@
 
-<% content_for :head do -%>
-  <%= stylesheet_link_tag 'product_page.css' %>
-<% end %>
-<% content_for :bottom do -%>
-  <%= javascript_include_tag "shopping/cart" %>
-<% end %>
 
-<div id='product'>
+<!-- Breadcrumb -->
+<div class="breadcrumb bordercolor">
+<div class="breadcrumb_inner">
+  <%= link_to "Home", "/"%><span class="navigation-pipe">&gt;</span><%= link_to ProductType.find(@product.product_type_id).name, products_path(:product_type_id => @product.product_type_id)%><span class="navigation-pipe">&gt;</span><%= @product.name %></div>
+</div>
+<!-- /Breadcrumb -->
+<script>
+$(function() {
+$(".image").click(function() {
+var image = $(this).attr("rel");
+$('#image').hide();
+$('#image').fadeIn('slow');
+$('#image').html('<img src="' + image + '"/>');
+return false;
+});
+});
+</script>
+<div id="primary_block" class="clearfix">
+  
+  <div id="pb-right-column">
 
-  <div class='span-1<%=@product.variants.empty? ? '9' : '8' %> float-left last'>
-    <div class='span-9 float-left'>
-      <%= image_tag(@product.featured_image(:product)) %><br/>
+    <div class="preview">
+              <div id = "image">
+                <%= image_tag(@product.featured_image(:product)) %>
+              </div>
+              <div class="thumbs">
+                <% @product.images.each do |image| %>
+                <a href="#" rel="<%= image.photo.url(:product) %>" class="image">
+                <%= image_tag(image.photo.url(:small)) %>
 
-      <div class='product-details'><%= @product.name %>
-      ( <%= number_to_currency @product.price_range.first %>
-        <% if @product.price_range? %>
-            to <%= number_to_currency @product.price_range.last %>
-        <% end %>)
-      </div>
+                </a>
+                <% end %>
+              </div>
     </div>
-    <% if @product.variants.empty? %>
-      <h2><%= @product.name %> </h2>
-      <div id='no-variant-available' class=' span-8  last'>
-        Sorry this product is not currently available.
-      </div>
-    <% else %>
-      <h2><%= @product.name %> </h2>
-      <div id='all-variants' class='dkBlueBox span-8'>
-        <div  class='innerBox'>
-          <% @product.variants.each_with_index do |variant, i| %>
-            <ul  id='variant_border_<%= i %>'
-                  class='variant_border last <%= 'selected_variant' if i == 0 %>  '
-                  data-variant='<%= variant.id %>' >
-                <div  id='variant_<%= i %>'
-                      class='variant_select' >
-                  <%= raw variant.primary_property.try(:property_name)  %>: <%= raw variant.sub_name %>
-                </div>
-              <%= number_to_currency variant.price %>
-              <%= variant.display_stock_status %>
-            </ul>
-          <% end %>
-        </div>
-      </div>
-      <hr/>
-      <div id='product_description' class='left-text-4'>
-        <%= raw @product.description %>
-      </div>
-    <% end %>
+
   </div>
-  <div id='add-to-cart_form-wrapper' class='span-6 float-left last'>
-    <%= form_for  @cart_item, :as => :cart_item,
+
+  <div id="pb-left-column">
+    <h1><%= @product.name%></h1>
+        
+              <div class="price bordercolor">
+                    
+          <span class="our_price_display">
+                        <span id="our_price_display" class="price"><%= number_to_currency @product.price_range.first %></span>
+                                  </span>
+
+         
+        </div>
+
+       
+              <div class="other_options bordercolor">
+              <div id="other_prices">
+          
+          <div id="short_description_block" class="bordercolor">
+              <div id="short_description_content" class="rte align_justify"><%= @product.description_markup%></div>
+                 
+        </div>
+          
+          
+          
+          
+                    
+            
+             </div>
+        
+            <div id="attributes">
+
+                <div class="clearblock"></div>
+
+              </div>
+<div class="clearblock"></div>
+          <%= form_for  @cart_item, :as => :cart_item,
                   :url  => shopping_cart_items_path(@cart_item),
                   :html => { :id => 'new_cart_item' } do |f| %>
-        <%= f.hidden_field :variant_id, :value => @product.variants.first.try(:id) %>
+         <label> Select property</label>         
+        <%= f.select :variant_id, options_for_select(@product.variants.collect {|p| [ p.sub_name, p.id ] } )%>
       <% unless @product.variants.empty? %>
           <%= f.label :quantity, 'Quantity:' %>
           <%= f.select :quantity, CartItem::QUANTITIES %>
 
-        <div id='submit_add_to_cart' class="gradientbuttons redtheme ready-to-add-to-cart">
-          <ul>
-            <li><a>Add to Cart</a></li>
+        <div>
+          <ul id = 'submit_add_to_cart', class="add2cartbtn">
+            
+            <li><%= submit_tag "Add to cart",:id => 'submit_add_to_cart', :class=> "exclusive" %></li>
           </ul>
         </div>
       <% end %>
     <% end %>
-  </div>
-</div>
+   
+        
+     
+
+    
+    </div>
+
+            <div class="clearblock"></div>
+
+          </div>
 
 
-<% content_for :below_body do -%>
-  <script>
-    Hadean.Utility.registerOnLoadHandler(Hadean.Cart.NewForm.initialize());
-  </script>
-<% end %>
+
+  
+
+    
+
+      
+
+  

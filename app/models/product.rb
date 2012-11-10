@@ -30,7 +30,8 @@ class Product < ActiveRecord::Base
   serialize :product_keywords, Array
 
   attr_accessor :available_shipping_rates # these the the shipping rates per the shipping address on the order
-
+ 
+  paginates_per 16
   belongs_to :brand
   belongs_to :product_type
   belongs_to :prototype

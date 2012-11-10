@@ -1,0 +1,91 @@
+<div id="columns">
+<!-- Center -->
+		<div id="center_column1">
+		<div id="center_column2">
+		<div id="center_column" class="center_column">
+
+
+<div id="tmnivoslider"> 	
+    <div id="slider">
+			<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=12"><img src="http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_00.jpg" alt="" title="#htmlcaption1" /></a>
+			<a href="http://livedemo00.template-help.com/prestashop_40836/category.php?id_category=5"><img src="http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_01.jpg" alt="" title="#htmlcaption2" /></a>
+			<a href="http://livedemo00.template-help.com/prestashop_40836/product.php?id_product=7"><img src="http://livedemo00.template-help.com/prestashop_40836/modules/tmnivoslider/slides/slide_02.jpg" alt="" title="#htmlcaption3" /></a>
+		</div>
+			<div id="htmlcaption1" class="nivo-html-caption">
+			<h2 class="slide-1">Multi-Touch and music. Smart ways to stay fit. Clock faces. A built-in FM radio. Everything about iPod nano is a huge hit.</h2>
+		</div>
+			<div id="htmlcaption2" class="nivo-html-caption">
+			<h2 class="slide-2">Siri on iPhone 4S lets you use your voice to send messages, schedule meetings, place phone calls, and more.</h2>
+		</div>
+			<div id="htmlcaption3" class="nivo-html-caption">
+			<h2 class="slide-3">You`re actually touching your photos, reading a book, playing the piano. Nothing comes between you and what you love.</h2>
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		effect:'fade', //Specify sets like: 'fold,fade,sliceDown'
+		slices:10,
+		animSpeed:500, //Slide transition speed
+		pauseTime:5000,
+		startSlide:0, //Set starting Slide (0 index)
+		directionNav:false, //Next & Prev
+		directionNavHide:false, //Only show on hover
+		controlNav:true, //1,2,3...
+		controlNavThumbs:false, //Use thumbnails for Control Nav
+      	controlNavThumbsFromRel:false, //Use image rel for thumbs
+		controlNavThumbsSearch: '.jpg', //Replace this with...
+		controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+		keyboardNav:true, //Use left & right arrows
+		pauseOnHover:true, //Stop animation while hovering
+		manualAdvance:false, //Force manual transitions
+		captionOpacity:1.0, //Universal caption opacity
+		beforeChange: function(){},
+		afterChange: function(){},
+		slideshowEnd: function(){} //Triggers after all slides have been shown
+	});
+});
+
+</script>
+
+<script type="text/javascript" src="http://livedemo00.template-help.com/prestashop_40836/modules/tmspecials/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="http://livedemo00.template-help.com/prestashop_40836/modules/tmspecials/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+$(window).load(function() {
+  $('#carousel').bxSlider({
+/*	auto: true,*/
+	autoStart: true,
+	speed: 500,
+	pause: 6000,
+    displaySlideQty: 6,
+    moveSlideQty: 1
+  });
+}); 
+</script>
+
+
+
+<!-- tmspecials -->
+<div id="tmspecials">
+
+	<div class="block_content">
+		<ul id="carousel">
+			   <% p = Product.limit(15).uniq%>
+			   <% p.each do |product|%>
+							<li class="tmsp1">
+				<%= link_to  image_tag(product.featured_image(:small)), product_path(product) %>
+			</li>
+			<%end%>
+		</ul>				
+	</div>
+</div>
+<!-- /tmspecials -->
+<!-- MODULE Home Featured Products -->
+
+<!-- /MODULE Home Featured Products -->		</div>
+		</div>
+		</div>
+		
+	</div>

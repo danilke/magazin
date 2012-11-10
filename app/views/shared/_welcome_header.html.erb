@@ -1,28 +1,11 @@
-<div class=" bp">
-  <div id="header_wrapper" class='bp'>
-    <div class="container logged-in" id="header">
-      <h1 id="logo">
-        <%= link_to image_tag( "logos/#{Image::MAIN_LOGO}.png", :alt => 'hadean image.'), root_path %>
-        <%#= link_to 'RoR Ecommerce', root_path %>
-      </h1>
-      <ul id="menu-main">
-        <li id="menu-main-discover">
-          <a href="/"><strong>Commerce</strong> <span>that scales</span></a>
-        </li>
-
-        <li class="" id="menu-main-cart">
-            <%= link_to(shopping_cart_items_path, :id => 'cart_items_buttons') do %>
-                <strong> Cart </strong> <span>view your stuff.</span>
-            <% end %>
-        </li>
-        <li class="" id="menu-main-wish">
-            <%= link_to(wish_items_path, :id => 'wish_items_button') do %>
-                <strong> Wish List </strong> <span>what you want.</span>
-            <% end %>
-        </li>
-
-        <li class="" id="menu-main-user">
-          <div>
+  <div id="header">
+    <a id="header_logo" href="http://livedemo00.template-help.com/prestashop_40836/" title="DIGITAL STORE">
+      <img class="logo" src="http://livedemo00.template-help.com/prestashop_40836/img/logo.jpg?1347604774" alt="DIGITAL STORE" />
+    </a>
+    <div id="header_right">
+      <!-- Block user information module HEADER -->
+<div id="header_user_info">
+ 
             <% unless current_user %>
               <strong><%= link_to 'Login',  login_path %></strong> or
               <span><%= link_to 'Sign up', signup_path %></span>
@@ -30,17 +13,73 @@
               <strong>Hi <%= current_user.first_name %></strong>
               <span>(<%= link_to 'not you?', logout_path %>)</span>
             <% end %>
-          </div>
-        </li>
-      </ul>
-
-      <%= render '/layouts/product_search' %>
-    </div>
+         
   </div>
-  <div id="sub_header_wrapper" class='bp'>
-    <div id="sub_sub_header_wrapper" class='container'>
-      <%= render 'shared/main_product_tabs' %>
-    </div>
-  </div>
+<div id="header_cart">
+   <%= link_to(shopping_cart_items_path, :id => 'cart_items_buttons') do %>
+                <strong> Cart </strong> <span>view your stuff.</span>
+            <% end %>
+</div>            
+<!-- /Block user information module HEADER --><ul id="tmheaderlinks">
+  <li><a href="/" class="active">home</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+  <li><a href="/">specials</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+  <li><a href="/">Delivery</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+  <li><a href="/">contact</a>&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;</li>
+  <li> <% unless current_user %>
+              <strong><%= link_to 'My account',  '/myaccount/' %></strong> 
+              
+            <%end %></li>
+</ul><!-- Block search module TOP -->
+<div id="search_block_top">
+  <%= render '/layouts/product_search' %>
+  
 </div>
+  
+
+<!-- /Block search module TOP --><!-- Block languages module -->
+
+<!-- /Block languages module --><!-- Block currencies module -->
+
+
+<!-- /Block currencies module --><!-- TM Categories -->
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+   $('ul.sf-menu').superfish({
+      delay:       1000,                            // задержка в миллисекунду
+      animation:   {opacity:'show',height:'show'},  // fade-in и slide-down анимация
+      speed:       'fast',                          // увеличение скорости анимации
+      autoArrows:  false,                           // отключает стрелку подменю
+      dropShadows: false                            // отключает тень
+   });
+ });
+</script>
+<div id="tmcategories">
+  <% pt = ProductType.where(:parent_id => nil)%>
+
+  <ul id="cat" class="sf-menu">
+    <%pt.each do |type|%>
+            <li class="sub">
+  <%=link_to type.name, products_path({:product_type_id => type.id})%>
+  <% produ = Product.where(:product_type_id => type.id).select("brand_id").uniq%>
+      <ul class="subcat">
+        <% produ.each do |brand|%>
+          <%br = Brand.find(brand.brand_id)%>
+              <li class="">
+               
+                <%= link_to br.name,  products_path({:brand_id => br.id})%>
+                </li>
+                <%end%>
+                       
+              </ul>
+  </li>
+  <%end%>
+    
+
+        </ul>
+</div>
+<!-- /TM Categories -->
+    </div>
+  </div>
 

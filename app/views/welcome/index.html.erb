@@ -1,13 +1,21 @@
-<% content_for :head do -%>
-  <%= stylesheet_link_tag 'home_page.css' %>
-<% end %>
-
-
-<div id='left_side_panel' class='span-6 last'>
-&nbsp;
-</div>
-
-<div id='featured_item' class='span-18 last'>
-  <%= image_tag 'home.png' %>
-</div>
-
+ <%= render :partial => 'shared/leftm' %>
+ <% products = Product.limit(3)%>
+   <div id="featured_products">
+	<h4>Featured products</h4>
+		<div class="block_content">
+		<ul>
+			<%products.each do |product|%>
+			 <li >
+				<%= link_to  image_tag(product.featured_image(:product)), product_path(product.id), :class=>"product_image" %>
+			<p>	<%= link_to product.name, product_path(product), :class => "product_link"%></p>
+			 <p>  <%= link_to (product.description_markup.truncate(50)),  product_path(product.id), :class=>"product_descr" , :title=>"More"%></p>
+					<h5><%= button_to "View", product_path(product), :class => 'button' %></h5>
+					<p><span class = "price", color: '#888'><%= number_to_currency product.price_range.first %></span></p>
+				
+			</li>
+				
+			<%end%>
+					</ul>
+		<div class="clearblock"></div>
+	</div>
+	</div>
