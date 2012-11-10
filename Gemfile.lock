@@ -6,7 +6,7 @@ GIT
       railties (>= 3.0.0)
 
 GEM
-  remote:  http://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     Ascii85 (1.0.2)
     RedCloth (4.2.9)
