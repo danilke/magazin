@@ -46,6 +46,7 @@ gem 'state_machine', '~> 1.1.2'
 #gem 'sunspot_rails', '~> 1.3.0rc'
 gem 'will_paginate', '~> 3.0.0'
 gem 'dynamic_form'
+gem  'capistrano'
 
 group :development do
   gem 'sqlite3'

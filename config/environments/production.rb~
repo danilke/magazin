@@ -103,6 +103,17 @@ Hadean::Application.configure do
     #  :signature  => Settings.paypal.signature
     #)
 
+    ::GATEWAY = ActiveMerchant::Billing::AuthorizeNetGateway.new(
+      :login    => Settings.authnet.login
+      :password => Settings.authnet.login
+      :test     => true
+    )
+
+    ::CIM_GATEWAY = ActiveMerchant::Billing::AuthorizeNetCimGateway.new(
+      :login    => Settings.authnet.login
+      :password => Settings.authnet.password
+      :test     => true
+    )
 
     #::GATEWAY = ActiveMerchant::Billing::BraintreeGateway.new(
     #  :login     => Settings.braintree.login
