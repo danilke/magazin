@@ -24,8 +24,6 @@ gem "jquery-rails"
 gem "rails_config"
 gem "kaminari"
 
-gem "unicorn"
-
 #gem 'memcache-client', '~> 1.8.5'
 group :production do
   gem 'mysql2', '~> 0.3.10'
